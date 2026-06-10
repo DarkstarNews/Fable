@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Img from '../components/Img.astro';
+import Ridge from '../components/Ridge.astro';
+import Flags from '../components/Flags.astro';
+import { site, url } from '../data/site';
+
+const faqs = [
+  [
+    'Do I need to be a qualified teacher?',
+    "No. You need fluent English, a finished degree or trade behind you, patience, and the humility to co-teach alongside our staff rather than replace them. A TEFL/CELTA certificate helps but has never been the deciding factor. Reliability is.",
+  ],
+  [
+    'How long is a placement?',
+    "One school term, roughly ten to twelve weeks, minimum. Shorter visits are lovely for visitors but genuinely costly for students — every goodbye sets the classroom back. If you can only come for two weeks, come as a guest, not a teacher.",
+  ],
+  [
+    'What does it cost?',
+    'You cover your flights, travel insurance, and visa. Your homestay — a private room, dal bhat twice a day, and a family that will absolutely adopt you — runs about US$70 a week, paid directly to the host family. The school takes nothing.',
+  ],
+  [
+    'What about the visa?',
+    "Most visitors arrive on a Nepali tourist visa (90 days, extendable to 150 per calendar year), which suits a one-term volunteer stay. We'll walk you through the current rules during your video calls — they do change, and we keep up so you don't have to.",
+  ],
+  [
+    'Is it safe? What about health care?',
+    "The village is the kind of place where the biggest danger is a third helping of rice. Pokhara, with proper clinics and hospitals, is under an hour away. You'll want routine travel vaccinations and decent insurance; we'll send you the same checklist we send everyone.",
+  ],
+  [
+    'Can I trek while I\'m there?',
+    "You'd be mad not to. Term breaks line up beautifully with October and April — the two best trekking windows in the Himalaya — and half the village dads are licensed guides. See the Visit Nepal page, then ask us before you book anything.",
+  ],
+  [
+    'Will I have internet?',
+    'Yes — village wifi is real and mostly willing, and 4G covers the hillside. Video calls home work fine in the evening. Power cuts happen; headlamps and equanimity are issued by experience.',
+  ],
+];
+---
+
+<Base
+  title="Teach With Us"
+  description="New Marigold Secondary School hosts a few visiting teachers each term. One term minimum, homestay living, real classrooms, real mountains. Here's exactly how it works."
+>
+  <SubHero kicker="Teach with us · हामीसँग सिकाउनुहोस्" image="learning">
+    <Fragment slot="title">Don't come for the photos. Come because <span class="accent">Grade 7</span> needs you.</Fragment>
+    <Fragment slot="lede">
+      Each term we host a small number of visiting teachers. It is unglamorous,
+      occasionally chaotic, and the best thing most of them say they've ever done.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--2" style="align-items: start;">
+      <div class="prose" data-reveal>
+        <p class="eyebrow">What this is</p>
+        <h2 style="font-size: var(--step-3);">A real job, with a <span class="accent">view</span></h2>
+        <p>
+          You will co-teach fifteen to twenty periods a week — usually English,
+          science, maths, or computer — planned together with our staff. You
+          will run a club on Fridays. You will mark homework by headlamp at
+          least once and develop strong feelings about chalk quality.
+        </p>
+        <p>
+          You will live with a host family ten minutes' walk from school, eat
+          the best dal bhat of your life twice daily, and be greeted by name by
+          approximately everyone within a kilometre inside of a week.
+        </p>
+      </div>
+      <div class="prose" data-reveal style="--reveal-delay: 0.15s">
+        <p class="eyebrow">What this isn't</p>
+        <h2 style="font-size: var(--step-3);">Voluntourism</h2>
+        <p>
+          We ask for one full term because children are not a photo
+          opportunity, and a revolving door of two-week visitors does them real
+          harm. Our own teachers lead every classroom; you add to them, you
+          don't substitute for them.
+        </p>
+        <p>
+          There is no fee to the school and no agency in the middle. Your costs
+          go to airlines, the government of Nepal, and the family that feeds
+          you. If a programme ever asks you for thousands of dollars to
+          "volunteer," ask where the money goes. We'll tell you where ours
+          does: nowhere. We don't take any.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The path in</p>
+      <h2 data-reveal style="max-width: 14ch; font-size: var(--step-3);">Three steps, no forms in triplicate</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        <article class="card" data-reveal>
+          <p class="card__ne ne">१</p>
+          <h4>Write to us</h4>
+          <p>
+            An honest email beats a polished CV: who you are, what you could
+            teach, which term you're thinking of. Send it to
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.12s">
+          <p class="card__ne ne">२</p>
+          <h4>Two video calls</h4>
+          <p>
+            One with the head teacher, one with a former visiting teacher who
+            will answer the questions you were too polite to ask us. We also
+            complete reference and background checks — these children are ours
+            to protect.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.24s">
+          <p class="card__ne ne">३</p>
+          <h4>Pick your term</h4>
+          <p>
+            Terms begin mid-April, late August, and late November. We confirm
+            your homestay, send the preparation pack, and start bragging to the
+            students that someone new is coming.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" flip />
+  <section class="section">
+    <div class="wrap cols cols--golden">
+      <div data-reveal>
+        <p class="eyebrow">Asked every time</p>
+        <h2 style="font-size: var(--step-3); max-width: 14ch;">The honest FAQ</h2>
+        <div class="faq" style="margin-top: 2rem;">
+          {faqs.map(([q, a]) => (
+            <details>
+              <summary>{q}</summary>
+              <div><p>{a}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+      <div data-reveal style="--reveal-delay: 0.15s; display: grid; gap: 1.5rem;">
+        <Img id="children" ratio="wide" />
+        <Img id="trail" ratio="wide" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band--paper2 section">
+    <div class="wrap">
+      <Flags />
+      <div class="quote" data-reveal style="margin-top: 2rem;">
+        <blockquote>
+          "My students taught me more Nepali than I taught them English. We've
+          agreed to call it a draw. I'm going back in the spring."
+        </blockquote>
+        <cite>Visiting teacher · two terms, 2025</cite>
+      </div>
+      <div style="text-align: center; margin-top: 3rem;" data-reveal>
+        <a class="btn" href={`mailto:${site.email}?subject=Teaching%20at%20New%20Marigold`}>Start with an email</a>
+      </div>
+    </div>
+  </section>
+</Base>

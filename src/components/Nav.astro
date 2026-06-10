@@ -1,0 +1,54 @@
+---
+import Logo from './Logo.astro';
+import { nav, site, url } from '../data/site';
+
+const current = Astro.url.pathname.replace(/\/$/, '');
+const isCurrent = (path: string) => url(path).replace(/\/$/, '') === current;
+---
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href={url()}>
+      <Logo />
+      <span>{site.shortName}<span class="visually-hidden"> Secondary School</span></span>
+    </a>
+
+    <button
+      class="nav__toggle"
+      aria-expanded="false"
+      aria-controls="nav-links"
+      aria-label="Menu"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path class="nav__icon-bars" d="M3 6h18M3 12h18M3 18h18" />
+        <path class="nav__icon-close" d="M5 5l14 14M19 5 5 19" />
+      </svg>
+    </button>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__home"><a href={url()}>Home</a></li>
+      {nav.map((item) => (
+        <li>
+          <a
+            href={url(item.path)}
+            aria-current={isCurrent(item.path) ? 'page' : undefined}
+            class={item.path === 'teach/' ? 'nav__cta' : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

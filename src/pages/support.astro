@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Ridge from '../components/Ridge.astro';
+import Flags from '../components/Flags.astro';
+import { site, url } from '../data/site';
+
+const gifts = [
+  {
+    npr: 'Rs 3,200',
+    usd: '≈ $24',
+    what: 'Textbooks and notebooks for one student for a full year — every subject, both languages, margins ready for doodles.',
+  },
+  {
+    npr: 'Rs 9,500',
+    usd: '≈ $70',
+    what: "One month of a student's full sponsorship: fees, uniform, supplies, and exam costs. Sponsors get a yearly letter in improving English.",
+  },
+  {
+    npr: 'Rs 40,000',
+    usd: '≈ $300',
+    what: 'A classroom of desks and benches, built by the carpenter two doors down. The money never leaves the village; the desks never leave service.',
+  },
+  {
+    npr: 'Rs 6,75,000',
+    usd: '≈ $5,000',
+    what: 'The science lab. The whole thing — benches, sinks, glassware, a microscope that will be treated like a holy relic. Our next mountain.',
+  },
+];
+---
+
+<Base
+  title="Support"
+  description="Where money actually goes at New Marigold Secondary School: textbooks, desks, teacher salaries, and one future science lab. Accounts published every Dashain."
+>
+  <SubHero kicker="Support · सहयोग" image="valley">
+    <Fragment slot="title">Small school, small budget, <span class="accent">enormous</span> leverage</Fragment>
+    <Fragment slot="lede">
+      A little money goes an embarrassingly long way at 1,650 metres. Here is
+      exactly what yours would do — in rupees, because that's what it becomes.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--golden" style="align-items: start;">
+      <div data-reveal>
+        <p class="eyebrow">Where it goes</p>
+        <h2 style="font-size: var(--step-3); max-width: 14ch;">Four things, priced honestly</h2>
+        <ul class="give" style="margin-top: 2rem;">
+          {gifts.map((g) => (
+            <li data-reveal>
+              <span class="give__amt">{g.npr}<small>{g.usd}</small></span>
+              <p>{g.what}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="prose" data-reveal style="--reveal-delay: 0.2s">
+        <p class="eyebrow">Our promise</p>
+        <h3>Accounts on the wall, every Dashain</h3>
+        <p>
+          Once a year, before the festival break, the full accounts are posted
+          on the noticeboard by the office: every rupee in, every rupee out,
+          signed by the head teacher and the parents' committee. Donors get the
+          same document by email, translated.
+        </p>
+        <p>
+          No salaries are paid to anyone outside the village. No agency takes a
+          percentage, because there is no agency. The overhead on your donation
+          is, roughly, the cost of the paper it is printed on.
+        </p>
+        <h3 style="margin-top: 2rem;">How to give</h3>
+        <p>
+          Online giving is coming soon. For now — and honestly, we prefer it —
+          <a href={`mailto:${site.email}?subject=Supporting%20New%20Marigold`}>write to us</a>.
+          You'll get a real reply from a real person, bank details, and a
+          photograph of whatever your gift becomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Not all help is money</p>
+      <h2 data-reveal style="max-width: 16ch; font-size: var(--step-3);">Other things we genuinely need</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        <article class="card" data-reveal>
+          <h4>Books, real ones</h4>
+          <p>
+            English picture books for the little ones, abridged classics and
+            atlases for the big ones. Travellers carry them up; the library
+            grows shelf by shelf, suitcase by suitcase.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.12s">
+          <h4>Working laptops</h4>
+          <p>
+            A retired laptop with an honest battery becomes a computer-lab
+            station for years. Wipe it, bring it, and watch a twelve-year-old
+            out-type you within the month.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.24s">
+          <h4>Your network</h4>
+          <p>
+            Know a great teacher between chapters of their life? Send them our
+            way. One forwarded link has, historically, been worth more to this
+            school than most cheques.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" flip />
+  <section class="section section--sm">
+    <div class="wrap">
+      <Flags />
+      <div class="quote" data-reveal style="margin-top: 2rem;">
+        <blockquote>
+          "We held school under a tarpaulin for eight months once. Money was
+          never the most important thing we ran on. But it bought the tarpaulin."
+        </blockquote>
+        <cite>Parents' committee, annual report</cite>
+      </div>
+      <div style="text-align: center; margin-top: 3rem;" data-reveal>
+        <a class="btn" href={`mailto:${site.email}?subject=Supporting%20New%20Marigold`}>Write to us about giving</a>
+        <a class="btn btn--ghost" href={url('contact/')} style="margin-left: 0.75rem;">Other questions</a>
+      </div>
+    </div>
+  </section>
+</Base>

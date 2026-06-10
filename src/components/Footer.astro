@@ -1,0 +1,62 @@
+---
+import Logo from './Logo.astro';
+import Ridge from './Ridge.astro';
+import { nav, site, url } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<Ridge fill="var(--night)" flip />
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand"><Logo size={24} /> {site.name}</p>
+        <p class="ne" style="margin-bottom: 0.4rem;">{site.nameNe}</p>
+        <p style="max-width: 34ch;">
+          Teaching the children of the Annapurna foothills since {site.founded}.
+          {site.altitudeM.toLocaleString()} metres up. The door is open.
+        </p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h4>School</h4>
+        <ul>
+          {nav.map((item) => (
+            <li><a href={url(item.path)}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
+          <li><a href={site.instagram} rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Right now in Nepal</h4>
+        <p>
+          It's <span class="footer__clock" data-np-clock>—:—</span> in the
+          hills above Pokhara<span data-np-note></span>.
+        </p>
+        <p class="footnote">
+          Nepal keeps its own time — UTC+5:45, one of only two such time zones
+          on Earth. We like being a little different.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p style="margin: 0;">
+        © {year} {site.name} · Made with care between Pokhara and the rest of the world.
+      </p>
+      <p style="margin: 0;">
+        <span class="ne">फेरि भेटौंला</span> — until we meet again.
+      </p>
+    </div>
+  </div>
+</footer>

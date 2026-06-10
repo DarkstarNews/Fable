@@ -1,0 +1,100 @@
+{
+  "heroHome": {
+    "src": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=2000&q=80",
+    "backup": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80",
+    "alt": "Stone houses of a Himalayan village beneath snow peaks in the Annapurna region of Nepal",
+    "credit": "Unsplash",
+    "tone": "night"
+  },
+  "peak": {
+    "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A snow-covered Himalayan summit catching the last light of the day",
+    "credit": "Unsplash",
+    "tone": "sky"
+  },
+  "ridges": {
+    "src": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1600&q=80",
+    "backup": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
+    "alt": "Layered mountain ridgelines fading into morning mist",
+    "credit": "Unsplash",
+    "tone": "sky"
+  },
+  "valley": {
+    "src": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
+    "backup": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1600&q=80",
+    "alt": "Sunlight breaking over a green valley at dawn",
+    "credit": "Unsplash",
+    "tone": "pine"
+  },
+  "panorama": {
+    "src": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=2000&q=80",
+    "backup": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=2000&q=80",
+    "alt": "A wide Himalayan panorama under a clear sky",
+    "credit": "Unsplash",
+    "tone": "sky"
+  },
+  "lake": {
+    "src": "https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+    "alt": "Still mountain lake wrapped in early-morning fog",
+    "credit": "Unsplash",
+    "tone": "night"
+  },
+  "trail": {
+    "src": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A trekker walking a forest trail with a full pack",
+    "credit": "Unsplash",
+    "tone": "pine"
+  },
+  "classroom": {
+    "src": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1400&q=80",
+    "alt": "Students bent over their notebooks during a lesson",
+    "credit": "Unsplash",
+    "tone": "marigold"
+  },
+  "teacher": {
+    "src": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A teacher working through a problem at the front of a classroom",
+    "credit": "Unsplash",
+    "tone": "marigold"
+  },
+  "learning": {
+    "src": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A lesson in progress, chalk dust and raised hands",
+    "credit": "Unsplash",
+    "tone": "marigold"
+  },
+  "children": {
+    "src": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A crowd of grinning children mugging for the camera",
+    "credit": "Unsplash",
+    "tone": "marigold"
+  },
+  "stupa": {
+    "src": "https://images.unsplash.com/photo-1611516491426-03025e6043c8?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=80",
+    "alt": "The painted eyes of Boudhanath stupa in Kathmandu, strung with prayer flags",
+    "credit": "Unsplash",
+    "tone": "night"
+  },
+  "food": {
+    "src": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+    "alt": "A thali of rice, lentils and curries served in steel dishes",
+    "credit": "Unsplash",
+    "tone": "terracotta"
+  },
+  "holi": {
+    "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1400&q=80",
+    "backup": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1400&q=80",
+    "alt": "Hands dusted in pink and yellow Holi powder",
+    "credit": "Unsplash",
+    "tone": "terracotta"
+  }
+}

@@ -1,0 +1,197 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Img from '../components/Img.astro';
+import Ridge from '../components/Ridge.astro';
+import { url } from '../data/site';
+
+const treks = [
+  {
+    name: 'Poon Hill',
+    days: '4–5 days',
+    blurb:
+      'The classic first Himalayan trek: rhododendron forests, stone staircases, and a sunrise over Dhaulagiri and Annapurna South that ruins all other sunrises for you.',
+  },
+  {
+    name: 'Mardi Himal',
+    days: '5–7 days',
+    blurb:
+      "The local favourite — a quieter ridge walk straight toward Machhapuchhre's east face. Several of our students' fathers guide this route in their sleep.",
+  },
+  {
+    name: 'Annapurna Base Camp',
+    days: '7–10 days',
+    blurb:
+      'Into the sanctuary itself: a natural amphitheatre at 4,130 m ringed by seven-and-eight-thousand-metre walls. You will hear avalanches at breakfast, safely, from a distance.',
+  },
+];
+
+const seasons = [
+  ['Oct – Nov', 'The crown jewels. Post-monsoon skies, festival season, perfect trails. Book everything early.'],
+  ['Dec – Feb', 'Cold, crisp, quiet. Brilliant low-altitude trekking and the mountains at their sharpest.'],
+  ['Mar – Apr', 'Rhododendron season — whole hillsides in bloom — and the spring trekking window.'],
+  ['May – Sep', 'Hot, then monsoon. Green beyond belief, leeches included free. The hills feed on this rain.'],
+];
+
+const festivals = [
+  {
+    name: 'Dashain',
+    ne: 'दशैं',
+    when: 'September–October',
+    blurb:
+      'Fifteen days of family, blessings, kites, and bamboo swings taller than houses. The whole country travels home — schools close, and the hills fill with laughter.',
+    color: 'var(--flag-red)',
+  },
+  {
+    name: 'Tihar',
+    ne: 'तिहार',
+    when: 'October–November',
+    blurb:
+      'The festival of lights — and of marigolds. Dogs, cows, and brothers each get their own day of honour. Our gate disappears under garlands. Our namesake holiday.',
+    color: 'var(--flag-yellow)',
+  },
+  {
+    name: 'Holi',
+    ne: 'होली',
+    when: 'March',
+    blurb:
+      'The colour festival. Visiting teachers are warned, armed with powder, and ambushed anyway. Wear clothes you are willing to retire in glory.',
+    color: 'var(--flag-green)',
+  },
+];
+---
+
+<Base
+  title="Visit Nepal"
+  description="Pokhara, the Annapurna treks, Dashain and Tihar, and the best dal bhat of your life — a local's guide to the Nepal around New Marigold Secondary School."
+>
+  <SubHero kicker="Visit Nepal · नेपाल घुम्नुहोस्" image="panorama">
+    <Fragment slot="title">There is no bad month in Nepal — only <span class="accent">different ones</span></Fragment>
+    <Fragment slot="lede">
+      Our school sits a day's walk from some of the most beautiful country on
+      the planet. Here is the Nepal we'd show you ourselves — because we usually do.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--golden">
+      <div class="prose" data-reveal>
+        <p class="eyebrow">Base camp for everything</p>
+        <h2 style="font-size: var(--step-3);">Pokhara, the <span class="accent">unhurried</span> city</h2>
+        <p>
+          Forty-five minutes downhill from school lies Pokhara: a lakeside city
+          that has perfected the art of making trekkers never want to leave.
+          Paddle Phewa Lake at dawn, climb to the World Peace Pagoda for the
+          skyline, paraglide off Sarangkot with the eagles, then eat your body
+          weight in momos by the water.
+        </p>
+        <p>
+          It's also the practical heart of any visit — airport, hospitals,
+          trekking permits, gear shops, and the bus park where every great
+          Annapurna story begins.
+        </p>
+      </div>
+      <div data-reveal style="--reveal-delay: 0.15s">
+        <Img id="lake" ratio="tall" />
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Out the back door</p>
+      <h2 data-reveal style="max-width: 16ch; font-size: var(--step-3);">Three treks we'd stake our name on</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        {treks.map((trek, i) => (
+          <article class="card" data-reveal style={`--reveal-delay: ${i * 0.12}s`}>
+            <p class="card__ne">{trek.days}</p>
+            <h4>{trek.name}</h4>
+            <p>{trek.blurb}</p>
+          </article>
+        ))}
+      </div>
+      <p class="footnote" data-reveal style="margin-top: 2.5rem; max-width: 62ch;">
+        Trek responsibly: Nepal requires a licensed guide for most solo trekking
+        in the Annapurna region, and frankly the guides are the best part. Hire
+        local, insure properly, walk slowly. Ask us first — half our school
+        community works these trails, and we will happily make introductions.
+      </p>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" flip />
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The calendar that matters</p>
+      <h2 data-reveal style="max-width: 16ch; font-size: var(--step-3);">Festivals worth planning around</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        {festivals.map((f, i) => (
+          <article class="card" data-reveal style={`--reveal-delay: ${i * 0.12}s; border-top-color: ${f.color};`}>
+            <p class="card__ne ne">{f.ne}</p>
+            <h4>{f.name} <span style="font-family: var(--sans); font-size: 0.6em; font-weight: 500; color: var(--ink-soft);">{f.when}</span></h4>
+            <p>{f.blurb}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band--paper2 section">
+    <div class="wrap cols cols--golden-r">
+      <div data-reveal>
+        <Img id="food" ratio="tall" />
+      </div>
+      <div class="prose" data-reveal style="--reveal-delay: 0.15s">
+        <p class="eyebrow">Fuel</p>
+        <h2 style="font-size: var(--step-3);"><span class="accent">Dal bhat</span> power, twenty-four hour</h2>
+        <p>
+          The national dish is a system, not a recipe: rice, lentil soup,
+          seasonal vegetables, pickles sharp enough to wake the dead, and
+          unlimited refills delivered before you ask. Every trekker learns the
+          proverb on the t-shirts eventually — dal bhat power really does run
+          twenty-four hour.
+        </p>
+        <p>
+          Beyond it: momos (dumplings of state-religion status), sel roti fried
+          fresh at festivals, gundruk soup, juju dhau — the "king of yogurts" —
+          if you make it to Bhaktapur, and milk tea at every threshold whether
+          you asked or not.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" />
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>When to come</p>
+      <h2 data-reveal style="max-width: 14ch; font-size: var(--step-3);">A year in the hills</h2>
+      <div class="cols cols--4" style="margin-top: 3rem;">
+        {seasons.map(([when, blurb], i) => (
+          <div data-reveal style={`--reveal-delay: ${i * 0.1}s`}>
+            <h4 style="color: var(--marigold-deep);">{when}</h4>
+            <p style="color: var(--ink-soft);">{blurb}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section" style="padding-block-start: var(--space-sm);">
+    <div class="wrap" style="text-align: center;">
+      <h2 data-reveal style="margin-inline: auto; max-width: 16ch; font-size: var(--step-3);">
+        Come for the mountains. Stay for the <span class="accent">morning assembly</span>.
+      </h2>
+      <p class="lede" data-reveal style="margin-inline: auto;">
+        The best way to see Nepal was never from a viewpoint. It's from a
+        classroom window, over twenty heads bent to their books.
+      </p>
+      <div class="hero__actions" data-reveal style="justify-content: center;">
+        <a class="btn" href={url('teach/')}>Teach a term</a>
+        <a class="btn btn--ghost" href={url('contact/')}>Plan a visit</a>
+      </div>
+    </div>
+  </section>
+</Base>
