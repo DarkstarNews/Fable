@@ -1,0 +1,37 @@
+---
+import images from '../data/images.json';
+
+interface Props {
+  id: keyof typeof images;
+  ratio?: 'wide' | 'tall' | 'square' | 'cinema' | 'none';
+  eager?: boolean;
+  class?: string;
+}
+
+const { id, ratio = 'wide', eager = false, class: cls = '' } = Astro.props;
+const img = images[id];
+const classes = ['ph', `ph--${img.tone}`, ratio !== 'none' && `ph--${ratio}`, cls]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<!-- Every photo slot carries a backup URL and a designed fallback, so a dead
+     link degrades to intentional art instead of a broken-image icon. -->
+<figure class={classes}>
+  <img
+    src={img.src}
+    alt={img.alt}
+    data-backup={img.backup}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+  <span class="ph__credit" aria-hidden="true">photo · {img.credit}</span>
+  <figcaption class="ph__fallback" aria-hidden="true">
+    <svg viewBox="0 0 1440 280" preserveAspectRatio="none" fill="currentColor">
+      <path opacity="0.35" d="M0 240 180 150 330 205 520 90 660 180 800 60 940 170 1120 120 1290 200 1440 150V280H0Z" />
+      <path d="M0 280 200 200 360 245 560 150 700 225 820 130 980 215 1160 175 1320 235 1440 200V280Z" />
+    </svg>
+    <p>{img.alt}</p>
+  </figcaption>
+</figure>

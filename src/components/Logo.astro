@@ -1,0 +1,24 @@
+---
+interface Props {
+  size?: number;
+}
+
+const { size = 28 } = Astro.props;
+const petals = [0, 45, 90, 135, 180, 225, 270, 315];
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 28 28"
+  aria-hidden="true"
+  role="img"
+>
+  <g fill="var(--marigold, #E89B1C)">
+    {petals.map((deg) => (
+      <ellipse cx="14" cy="7" rx="3.4" ry="6.2" transform={`rotate(${deg} 14 14)`} />
+    ))}
+  </g>
+  <circle cx="14" cy="14" r="4.2" fill="var(--marigold-deep, #C07A06)" />
+  <circle cx="14" cy="14" r="1.8" fill="var(--night, #0F1E2E)" opacity="0.55" />
+</svg>

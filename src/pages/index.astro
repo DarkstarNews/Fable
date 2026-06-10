@@ -1,0 +1,215 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Ridge from '../components/Ridge.astro';
+import Flags from '../components/Flags.astro';
+import { site, url } from '../data/site';
+
+const arrow = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>`;
+---
+
+<Base
+  title={site.shortName}
+  description="New Marigold Secondary School teaches 214 children in the Annapurna foothills of Nepal. Come see what we're building — or come teach with us."
+>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'School',
+      name: site.name,
+      alternateName: site.nameNe,
+      description: site.tagline,
+      email: site.email,
+      telephone: site.phone,
+      foundingDate: String(site.founded),
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Gandaki Province',
+        addressLocality: 'Kaski District',
+        addressCountry: 'NP',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: site.map.lat, longitude: site.map.lon },
+      sameAs: [site.instagram],
+    })}
+  />
+
+  <!-- ======================================================= hero -->
+  <section class="hero">
+    <div class="hero__media">
+      <Img id="heroHome" ratio="none" eager />
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="wrap hero__content on-dark">
+      <p class="hero__kicker">{site.name} · {site.locality}</p>
+      <h1>A small school under the <span class="accent">biggest sky</span> on Earth.</h1>
+      <p class="lede">
+        Two hundred and fourteen students. Eleven teachers. One mountain view that
+        never gets old. We've been teaching the children of the Annapurna
+        foothills since {site.founded} — and we're just getting started.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href={url('teach/')}>Teach with us <Fragment set:html={arrow} /></a>
+        <a class="btn btn--ghost" href={url('story/')}>Our story</a>
+      </div>
+      <p class="hero__ne">
+        <span class="ne">सयपत्री</span> · <em>saya patri</em> — "the flower of a
+        hundred petals." Our namesake, and our standard.
+      </p>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </section>
+
+  <!-- ======================================================= why marigold -->
+  <section class="section">
+    <div class="wrap cols cols--golden">
+      <div data-reveal>
+        <p class="eyebrow">Namaste · नमस्ते</p>
+        <h2>Why a school is named after a <span class="accent">flower</span></h2>
+        <div class="prose">
+          <p>
+            In Nepal, the marigold is not decoration. It's the flower you string
+            into a garland for someone you are glad came. Every autumn during
+            Tihar, our front gate disappears under hundreds of them, threaded by
+            small, patient hands.
+          </p>
+          <p>
+            We named the school after that flower because it's what we want
+            school to feel like: bright, abundant, and woven by hand. A place a
+            child walks an hour uphill to reach — and is glad she did.
+          </p>
+          <p>
+            We are a community school. Most of our teachers grew up within sight
+            of these classrooms. Our students are the children of farmers,
+            trekking guides, soldiers, and shopkeepers — and they are headed
+            further than any generation before them.
+          </p>
+        </div>
+        <a class="btn btn--ghost" href={url('story/')} style="margin-top: 0.5rem;">
+          Read our story <Fragment set:html={arrow} />
+        </a>
+      </div>
+      <div data-reveal style="--reveal-delay: 0.15s">
+        <Img id="children" ratio="tall" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= stats -->
+  <Ridge fill="var(--night)" />
+  <section class="band section--sm" style="padding-block-end: var(--space-sm);">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <span class="stat__num"><span data-count={site.altitudeM}>0</span><sup>m</sup></span>
+          <span class="stat__label">Above sea level</span>
+        </div>
+        <div class="stat" data-reveal style="--reveal-delay: 0.1s">
+          <span class="stat__num"><span data-count={site.students}>0</span></span>
+          <span class="stat__label">Students, ECD–10</span>
+        </div>
+        <div class="stat" data-reveal style="--reveal-delay: 0.2s">
+          <span class="stat__num"><span data-count={new Date().getFullYear() - site.founded}>0</span></span>
+          <span class="stat__label">Years and counting</span>
+        </div>
+        <div class="stat" data-reveal style="--reveal-delay: 0.3s">
+          <span class="stat__num"><span data-count={site.seePassRate}>0</span><sup>%</sup></span>
+          <span class="stat__label">SEE pass rate</span>
+        </div>
+      </div>
+      <p class="footnote" style="text-align: center; margin: 2.5rem 0 0;">
+        SEE — the Secondary Education Examination, Nepal's national Grade 10 exam.
+        Our students sit it in the spring, and we are quietly very proud of that number.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================= three doors -->
+  <section class="band section" style="padding-block-start: 0;">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Three ways in</p>
+      <h2 data-reveal style="max-width: 18ch;">Every good thing here started with someone showing up</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        <article class="card" data-reveal>
+          <p class="card__ne ne">पढ्नु</p>
+          <h4>Learn</h4>
+          <p>
+            Eleven grades, two languages, one very loud morning assembly. See
+            what a school day looks like at 1,650 metres.
+          </p>
+          <p style="margin-top: 1.2rem;"><a href={url('academics/')}>Academics →</a></p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.12s">
+          <p class="card__ne ne">सिकाउनु</p>
+          <h4>Teach</h4>
+          <p>
+            We host a small number of visiting teachers each term. It is not a
+            holiday. It will probably change your life anyway.
+          </p>
+          <p style="margin-top: 1.2rem;"><a href={url('teach/')}>Teach with us →</a></p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.24s">
+          <p class="card__ne ne">घुम्नु</p>
+          <h4>Wander</h4>
+          <p>
+            The Annapurna trailheads are on our doorstep. Come for the school,
+            stay for the mountains — or the other way round.
+          </p>
+          <p style="margin-top: 1.2rem;"><a href={url('visit/')}>Visit Nepal →</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= gallery -->
+  <Ridge fill="var(--paper)" flip />
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>From the hillside</p>
+      <h2 data-reveal style="max-width: 16ch;">What the school sees every day</h2>
+      <div class="gallery-strip" style="margin-top: 3rem;">
+        <div data-reveal><Img id="peak" ratio="tall" /></div>
+        <div data-reveal style="--reveal-delay: 0.1s"><Img id="classroom" ratio="tall" /></div>
+        <div data-reveal style="--reveal-delay: 0.2s"><Img id="valley" ratio="tall" /></div>
+        <div data-reveal style="--reveal-delay: 0.3s"><Img id="learning" ratio="tall" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= quote -->
+  <section class="band--paper2 section">
+    <div class="wrap">
+      <Flags />
+      <div class="quote" data-reveal style="margin-top: 2rem;">
+        <blockquote>
+          "I came for one term between jobs. I stayed for three. Nobody warns
+          you that the hardest part of teaching in Nepal is leaving."
+        </blockquote>
+        <cite>Visiting teacher · 2024</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= cta -->
+  <Ridge fill="var(--night)" />
+  <section class="band section" style="padding-block-start: var(--space-sm);">
+    <div class="wrap" style="text-align: center;">
+      <h2 data-reveal style="margin-inline: auto; max-width: 16ch;">
+        Grade 7 needs a <span class="accent">science teacher</span>
+      </h2>
+      <p class="lede" data-reveal style="margin-inline: auto;">
+        And Grade 4 needs picture books, and the football needs pumping. Whoever
+        you are, there is a version of helping that fits.
+      </p>
+      <div class="hero__actions" data-reveal style="justify-content: center;">
+        <a class="btn" href={url('teach/')}>Teach with us <Fragment set:html={arrow} /></a>
+        <a class="btn btn--ghost" href={url('support/')}>Support the school</a>
+      </div>
+    </div>
+  </section>
+</Base>

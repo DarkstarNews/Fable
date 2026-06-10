@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Ridge from '../components/Ridge.astro';
+import { url } from '../data/site';
+---
+
+<Base
+  title="Page not found"
+  description="This page wandered off the trail."
+>
+  <section class="hero hero--sub band" style="min-height: 78svh; align-items: center;">
+    <div class="wrap hero__content on-dark" style="text-align: center;">
+      <p class="hero__kicker" style="justify-content: center;">404 · बाटो हरायो</p>
+      <h1 style="margin-inline: auto;">You've wandered <span class="accent">off the trail</span></h1>
+      <p class="lede" style="margin-inline: auto;">
+        It happens to every trekker eventually. The rule in the hills is the
+        rule here: stop, breathe, enjoy the view, and head back to the last
+        place you were sure of.
+      </p>
+      <div class="hero__actions" style="justify-content: center;">
+        <a class="btn" href={url()}>Back to the school gate</a>
+      </div>
+    </div>
+    <div style="position: absolute; inset: auto 0 0 0; z-index: 1;">
+      <Ridge fill="rgba(250, 246, 236, 0.08)" />
+    </div>
+  </section>
+</Base>

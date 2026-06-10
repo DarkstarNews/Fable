@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Ridge from '../components/Ridge.astro';
+import { site } from '../data/site';
+
+const { lat, lon } = site.map;
+const d = 0.09;
+const bbox = [lon - d, lat - d, lon + d, lat + d].join(',');
+const osmEmbed = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
+const osmLink = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=12/${lat}/${lon}`;
+---
+
+<Base
+  title="Contact"
+  description="Write to New Marigold Secondary School, find us in the hills above Pokhara, or learn how to reach the village — by plane, bus, jeep, and one last walk."
+>
+  <SubHero kicker="Contact · सम्पर्क" image="stupa">
+    <Fragment slot="title">The kettle is on. <span class="accent">Write to us.</span></Fragment>
+    <Fragment slot="lede">
+      Email is best — the office checks it every school day, between assembly
+      and whatever the day decides to become.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--2" style="align-items: start;">
+      <div data-reveal>
+        <p class="eyebrow">Send a message</p>
+        <h2 style="font-size: var(--step-3);">No contact-form purgatory</h2>
+        <p class="prose">
+          This form opens a plain, honest email from your own mail app —
+          nothing disappears into a database. You'll hear back from a person,
+          usually within a few school days.
+        </p>
+        <form class="contact-form" id="contact-form" style="margin-top: 2rem;">
+          <label>
+            Your name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            What's it about?
+            <select name="topic">
+              <option>Teaching with you</option>
+              <option>Supporting the school</option>
+              <option>Visiting the village</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>
+            Your message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+          <div>
+            <button class="btn" type="submit">Open email to the school</button>
+          </div>
+          <p class="footnote">
+            Prefer to write directly? <a href={`mailto:${site.email}`}>{site.email}</a>
+            · {site.phone}
+          </p>
+        </form>
+      </div>
+
+      <div data-reveal style="--reveal-delay: 0.15s">
+        <p class="eyebrow">Find us</p>
+        <h2 style="font-size: var(--step-3);">Up and to the left of Pokhara</h2>
+        <iframe
+          class="map-frame"
+          src={osmEmbed}
+          title="Map of the hills above Pokhara, Kaski District"
+          loading="lazy"
+        ></iframe>
+        <p class="footnote" style="margin-top: 0.8rem;">
+          <a href={osmLink} rel="noopener">Open full map</a> · {site.locality}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper-2)" />
+  <section class="band--paper2 section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Getting here</p>
+      <h2 data-reveal style="max-width: 16ch; font-size: var(--step-3);">Four legs, each better than the last</h2>
+      <div class="cols cols--4" style="margin-top: 3rem;">
+        <div data-reveal>
+          <h4>1 · Kathmandu</h4>
+          <p style="color: var(--ink-soft);">
+            Land at Tribhuvan International. Stay a day if you can — the old
+            city deserves it.
+          </p>
+        </div>
+        <div data-reveal style="--reveal-delay: 0.1s">
+          <h4>2 · Pokhara</h4>
+          <p style="color: var(--ink-soft);">
+            A 25-minute flight over the Himalaya, or the famous tourist bus:
+            seven hours of river valleys and roadside dal bhat.
+          </p>
+        </div>
+        <div data-reveal style="--reveal-delay: 0.2s">
+          <h4>3 · The jeep</h4>
+          <p style="color: var(--ink-soft);">
+            From the bus park, a shared jeep climbs about forty-five minutes
+            into the hills. Tell the driver the school's name; everyone knows it.
+          </p>
+        </div>
+        <div data-reveal style="--reveal-delay: 0.3s">
+          <h4>4 · The walk</h4>
+          <p style="color: var(--ink-soft);">
+            Ten minutes on foot from the jeep stop, past the marigold beds, to
+            the blue gate. You'll hear the school before you see it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Compose a mailto from the form — works with zero backend.
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const subject = `${data.get('topic')} — from ${data.get('name')}`;
+      const body = `${data.get('message')}\n\n— ${data.get('name')}`;
+      window.location.href =
+        'mailto:hello@newmarigold.edu.np' +
+        `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</Base>

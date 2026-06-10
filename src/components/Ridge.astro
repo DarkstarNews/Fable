@@ -1,0 +1,28 @@
+---
+// Mountain ridgeline section divider. `fill` should match the background of
+// the section that follows, so the ridge reads as its skyline.
+interface Props {
+  fill?: string;
+  flip?: boolean;
+}
+
+const { fill = 'var(--paper)', flip = false } = Astro.props;
+---
+
+<svg
+  class="ridge"
+  viewBox="0 0 1440 110"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+  style={flip ? 'transform: scaleX(-1)' : undefined}
+>
+  <path
+    fill={fill}
+    opacity="0.35"
+    d="M0 86 150 52 300 78 470 26 610 66 760 8 905 58 1070 34 1240 74 1440 44V110H0Z"
+  />
+  <path
+    fill={fill}
+    d="M0 110 170 72 330 94 540 44 680 84 815 28 960 76 1130 56 1300 92 1440 68V110Z"
+  />
+</svg>

@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Img from '../components/Img.astro';
+import Ridge from '../components/Ridge.astro';
+import Flags from '../components/Flags.astro';
+import { site, url } from '../data/site';
+---
+
+<Base
+  title="Our Story"
+  description="From two rented rooms in 2004 to eleven grades on a Himalayan hillside — the story of New Marigold Secondary School, told honestly."
+>
+  <SubHero kicker="Our story · हाम्रो कथा" image="ridges">
+    <Fragment slot="title">It started with <span class="accent">two rooms</span> and a borrowed blackboard</Fragment>
+    <Fragment slot="lede">
+      Nobody founds a hillside school because it's convenient. You do it because
+      the alternative is children walking three hours each way — or not going at all.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--golden">
+      <div class="prose" data-reveal>
+        <p class="eyebrow">Where we are</p>
+        <h2 style="font-size: var(--step-3);">A village that looks up at <span class="accent">Machhapuchhre</span></h2>
+        <p>
+          Our school sits at {site.altitudeM.toLocaleString()} metres in the
+          terraced hills of Kaski District, a stiff walk above the Pokhara
+          valley. On a clear morning — and most mornings here are clear — the
+          fishtail peak of Machhapuchhre fills the classroom windows so
+          completely that new teachers reliably lose their train of thought
+          mid-sentence. The students find this hilarious. They have seen the
+          mountain every day of their lives.
+        </p>
+        <p>
+          The village runs on farming, remittances, and the trekking trade.
+          Many of our fathers and uncles are mountain guides; many of our
+          mothers run the terraces and the household ledgers. What the village
+          did not have, for a long time, was a school past Grade 5.
+        </p>
+      </div>
+      <div data-reveal style="--reveal-delay: 0.15s">
+        <Img id="peak" ratio="tall" />
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper-2)" />
+  <section class="band--paper2 section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Twenty-two years, briefly</p>
+      <h2 data-reveal style="max-width: 16ch; font-size: var(--step-3);">The short version of a long climb</h2>
+      <ol class="tl" style="margin-top: 3rem; max-width: 46rem;">
+        <li data-reveal>
+          <span class="tl__when">2004</span>
+          <h4>Two rented rooms</h4>
+          <p>
+            Twelve families pool money to hire two teachers. Classes ECD to
+            Grade 3, one blackboard between them, borrowed from the ward office
+            and never returned. (We have since apologised.)
+          </p>
+        </li>
+        <li data-reveal>
+          <span class="tl__when">2009</span>
+          <h4>A building of our own</h4>
+          <p>
+            Four classrooms of brick and blue tin, built in one dry season by
+            parents who carried the cement up by doko basket. Enrollment
+            triples.
+          </p>
+        </li>
+        <li data-reveal>
+          <span class="tl__when">2015</span>
+          <h4>The earthquake year</h4>
+          <p>
+            The Gorkha earthquake cracks two classrooms. We hold lessons under
+            a tarpaulin for eight months and cancel exactly zero school days.
+            This remains the fact about ourselves we repeat most often.
+          </p>
+        </li>
+        <li data-reveal>
+          <span class="tl__when">2018</span>
+          <h4>First visiting teachers</h4>
+          <p>
+            A trekker stays a season to teach English and accidentally invents
+            our visiting-teacher programme. Word of mouth does the rest.
+          </p>
+        </li>
+        <li data-reveal>
+          <span class="tl__when">2021</span>
+          <h4>Secondary status</h4>
+          <p>
+            We are approved to teach through Grade 10. Our first SEE cohort
+            sits the national exam two years later — and clears it at rates
+            that made the district office double-check the paperwork.
+          </p>
+        </li>
+        <li data-reveal>
+          <span class="tl__when">Today</span>
+          <h4>{site.students} students and a waiting list</h4>
+          <p>
+            Eleven grades, a small library, a computer room with six machines
+            and strong opinions about load-shedding. Next on the list: a
+            science lab.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>What we believe</p>
+      <h2 data-reveal style="max-width: 14ch; font-size: var(--step-3);">Three rules we actually follow</h2>
+      <div class="cols cols--3" style="margin-top: 3rem;">
+        <article class="card" data-reveal>
+          <h4>Show up</h4>
+          <p>
+            Through monsoon, through exams, through the year we taught under a
+            tarp. Attendance is the whole secret — for students and for the
+            adults who serve them.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.12s">
+          <h4>Both languages</h4>
+          <p>
+            English opens doors; Nepali holds the house they belong to. We
+            teach in both without apology. A child who loses her mother tongue
+            has been undereducated, not over-educated.
+          </p>
+        </article>
+        <article class="card" data-reveal style="--reveal-delay: 0.24s">
+          <h4>The door is open</h4>
+          <p>
+            To every child in walking distance, to parents at any hour, and to
+            visitors who come to give rather than take. Tea is usually already
+            boiling.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" flip />
+  <section class="section--sm section">
+    <div class="wrap">
+      <Flags />
+      <div class="quote" data-reveal style="margin-top: 2rem;">
+        <blockquote>
+          "People ask what the school needs. Mostly it needs what it has always
+          needed: people who keep coming back."
+        </blockquote>
+        <cite>Head teacher, at the 20th-anniversary assembly</cite>
+      </div>
+      <div style="text-align: center; margin-top: 3rem;" data-reveal>
+        <a class="btn" href={url('teach/')}>Be one of those people</a>
+      </div>
+    </div>
+  </section>
+</Base>

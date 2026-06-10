@@ -1,0 +1,23 @@
+---
+import Img from './Img.astro';
+import type images from '../data/images.json';
+
+interface Props {
+  kicker: string;
+  image: keyof typeof images;
+}
+
+const { kicker, image } = Astro.props;
+---
+
+<section class="hero hero--sub">
+  <div class="hero__media">
+    <Img id={image} ratio="none" eager />
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="wrap hero__content on-dark">
+    <p class="hero__kicker">{kicker}</p>
+    <h1 style="font-size: var(--step-4); max-width: 18ch;"><slot name="title" /></h1>
+    <p class="lede"><slot name="lede" /></p>
+  </div>
+</section>

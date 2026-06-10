@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Img from '../components/Img.astro';
+import Ridge from '../components/Ridge.astro';
+import { url } from '../data/site';
+
+const subjects = [
+  ['English', 'Daily from ECD. By Grade 6 most subjects are taught in English medium.'],
+  ['Nepali', 'Language, literature, and the grammar everyone claims to hate and secretly enjoys.'],
+  ['Mathematics', 'The serious business. Optional maths from Grade 9 for the ambitious.'],
+  ['Science', 'Currently taught with more imagination than equipment. See: science lab fund.'],
+  ['Social Studies', 'Nepal first, then the world — geography, civics, and history.'],
+  ['Computer', 'Six machines, typing, office tools, and the first taste of code.'],
+  ['Health & PE', 'A sloped football pitch builds character and very strong calves.'],
+  ['Moral Education', 'Mostly taught by example, occasionally by textbook.'],
+];
+---
+
+<Base
+  title="Academics"
+  description="Eleven grades, two languages, and one very loud morning assembly. What learning looks like at New Marigold Secondary School — from ECD to the SEE exam."
+>
+  <SubHero kicker="Academics · पढाइ" image="classroom">
+    <Fragment slot="title">Eleven grades, two languages, <span class="accent">one loud assembly</span></Fragment>
+    <Fragment slot="lede">
+      From early childhood (ECD) through Grade 10 and the national SEE exam —
+      here is what a New Marigold education is made of.
+    </Fragment>
+  </SubHero>
+
+  <section class="section">
+    <div class="wrap cols cols--golden-r">
+      <div data-reveal>
+        <Img id="teacher" ratio="tall" />
+      </div>
+      <div class="prose" data-reveal style="--reveal-delay: 0.15s">
+        <p class="eyebrow">The shape of it</p>
+        <h2 style="font-size: var(--step-3);">Small classes, long <span class="accent">memories</span></h2>
+        <p>
+          We run a full government-recognised curriculum, taught English-medium
+          from the middle grades with Nepali language and literature throughout.
+          Class sizes hover around twenty, which means a teacher here learns
+          three things about every student: their name, their handwriting, and
+          exactly which seat they drift toward when they haven't done the
+          reading.
+        </p>
+        <p>
+          The academic year runs mid-April to late March, paused by two
+          glorious interruptions: the Dashain–Tihar festival break in autumn,
+          and the monsoon doing whatever the monsoon wants.
+        </p>
+        <p>
+          Grade 10 ends with the SEE — the national Secondary Education
+          Examination. Exam season turns the whole village quiet and
+          superstitious. Shopkeepers ask after practice scores. It is extremely
+          good pressure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper-2)" />
+  <section class="band--paper2 section">
+    <div class="wrap cols cols--2" style="align-items: start;">
+      <div data-reveal>
+        <p class="eyebrow">A school day, honestly</p>
+        <h2 style="font-size: var(--step-3); max-width: 14ch;">Sunday to Friday, like clockwork-ish</h2>
+        <p class="prose">
+          Nepal's week runs Sunday to Friday — Saturday is the day off, and
+          Friday finishes early. Set your watch to Nepal Time, which is its own
+          adventure (UTC+5:45).
+        </p>
+      </div>
+      <ul class="day" data-reveal style="--reveal-delay: 0.15s">
+        <li><time>9:40</time><p><strong>Gates open.</strong> Students arrive from up to ninety minutes' walk away, in remarkably clean uniforms given the trails involved.</p></li>
+        <li><time>10:00</time><p><strong>Assembly.</strong> The national anthem, announcements, and exercises in the yard. Loudness: considerable. Mountain echo: confirmed.</p></li>
+        <li><time>10:15</time><p><strong>Periods 1–4.</strong> The heavyweight subjects land in the morning, while brains are fresh and the fog is still burning off the valley.</p></li>
+        <li><time>1:00</time><p><strong>Tiffin.</strong> Lunch break — dal bhat from home in steel tiffin boxes, trades negotiated at market rates.</p></li>
+        <li><time>1:45</time><p><strong>Periods 5–7.</strong> Languages, social studies, computer, PE on the famous sloped pitch.</p></li>
+        <li><time>4:00</time><p><strong>Home.</strong> Downhill, mercifully. Fridays end at 1:00 for clubs, sport, and teachers' planning.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <Ridge fill="var(--paper)" flip />
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>What we teach</p>
+      <h2 data-reveal style="max-width: 14ch; font-size: var(--step-3);">The subjects on the wall</h2>
+      <div class="cols cols--2" style="margin-top: 3rem; gap: 0;">
+        {subjects.map(([name, blurb], i) => (
+          <div
+            data-reveal
+            style={`--reveal-delay: ${(i % 2) * 0.1}s; padding: 1.3rem 1.5rem 1.3rem 0; border-bottom: 1px solid var(--paper-3);`}
+          >
+            <h4 style="margin-bottom: 0.25em;">{name}</h4>
+            <p style="margin: 0; color: var(--ink-soft);">{blurb}</p>
+          </div>
+        ))}
+      </div>
+      <p class="footnote" style="margin-top: 2.5rem;" data-reveal>
+        Plus the unofficial curriculum: garland-making in October, kite season
+        after exams, and an annual inter-house quiz taken about as seriously as
+        the World Cup.
+      </p>
+    </div>
+  </section>
+
+  <Ridge fill="var(--night)" />
+  <section class="band section">
+    <div class="wrap" style="text-align: center;">
+      <h2 data-reveal style="margin-inline: auto; max-width: 18ch; font-size: var(--step-3);">
+        The missing ingredient is usually <span class="accent">a person</span>
+      </h2>
+      <p class="lede" data-reveal style="margin-inline: auto;">
+        Our students have the curriculum and the willpower. What multiplies both
+        is another good teacher in the room — maybe you, maybe just for a term.
+      </p>
+      <div class="hero__actions" data-reveal style="justify-content: center;">
+        <a class="btn" href={url('teach/')}>How teaching here works</a>
+        <a class="btn btn--ghost" href={url('support/')}>Fund the science lab</a>
+      </div>
+    </div>
+  </section>
+</Base>
